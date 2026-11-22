@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<info xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>maptoposter</id>
+    <name>MapToPoster</name>
+    <summary>Create map posters and save them to Files</summary>
+    <description>Design a map poster in your browser and save the finished PNG in your personal Poster folder.</description>
+    <version>0.1.0</version>
+    <licence>MIT</licence>
+    <author>MapToPoster contributors</author>
+    <namespace>MapToPoster</namespace>
+    <category>multimedia</category>
+    <dependencies>
+        <nextcloud min-version="32" max-version="35"/>
+    </dependencies>
+    <navigations>
+        <navigation>
+            <name>MapToPoster</name>
+            <route>maptoposter.page.index</route>
+            <icon>app.svg</icon>
+        </navigation>
+    </navigations>
+</info>
