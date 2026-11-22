@@ -11,7 +11,7 @@ tar -xzf maptoposter.tar.gz -C /var/www/html/custom_apps
 php /var/www/html/occ app:enable maptoposter
 ```
 
-Die erste Zeile mit Schreibrechten für das App-Verzeichnis, die zweite als Webserver-Benutzer ausführen. Version 0.1.0 unterstützt Nextcloud 32. Der Speichervorgang wurde mit einem normalen Benutzerkonto auf Nextcloud 32.0.15 in der Desktop- und Mobilansicht geprüft. Nach dem Aktivieren erscheint **MapToPoster** in der Hauptnavigation.
+Die erste Zeile mit Schreibrechten für das App-Verzeichnis, die zweite als Webserver-Benutzer ausführen. Das Paket lässt sich auf Nextcloud 32 bis 35 aktivieren. Das Speichern mit einem normalen Benutzerkonto wurde auf Nextcloud 32.0.15 in der Desktop- und Mobilansicht und auf Nextcloud 35.0.3 in der Desktopansicht geprüft. Nach dem Aktivieren erscheint **MapToPoster** in der Hauptnavigation.
 
 ## Aus dem Quellcode bauen
 

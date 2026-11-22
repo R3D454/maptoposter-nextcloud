@@ -3,7 +3,7 @@ import { join } from 'node:path';
 import { create } from 'tar';
 
 const target = 'dist/maptoposter';
-for (const path of ['appinfo', 'lib', 'templates', 'img', 'LICENSE', 'README.md']) {
+for (const path of ['appinfo', 'lib', 'templates', 'img', 'l10n', 'LICENSE', 'README.md']) {
     await cp(path, join(target, path), { recursive: true });
 }
 const lock = JSON.parse(await readFile('package-lock.json', 'utf8'));

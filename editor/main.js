@@ -1,3 +1,4 @@
+import { translate } from "./src/l10n.js";
 import 'leaflet/dist/leaflet.css';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import './fonts.css';
@@ -55,15 +56,15 @@ async function exportPoster(save) {
 	exporting = true;
 	for (const button of actions) button.disabled = true;
 	try {
-		showStatus('Poster wird erstellt …');
+		showStatus(translate("Preparing poster …"));
 		const filename = posterFilename(state.cityOverride || state.city);
 		if (state.renderMode === 'artistic') await waitForArtisticIdle(30000);
 		else await waitForTilesLoad(30000);
 		const png = await renderPosterPNG(document.getElementById('poster-container'));
 		if (save) {
-			showStatus('PNG wird in Nextcloud gespeichert …');
+			showStatus(translate("Saving PNG to Nextcloud …"));
 			const result = await savePoster(png, filename, editor.dataset, document.head.dataset.requesttoken);
-			showStatus(`Gespeichert in Poster/${result.name}`, result);
+			showStatus(translate("Saved to Poster/{name}", { name: result.name }), result);
 		} else {
 			const url = URL.createObjectURL(png);
 			const link = document.createElement('a');
@@ -71,11 +72,11 @@ async function exportPoster(save) {
 			link.download = filename;
 			link.click();
 			setTimeout(() => URL.revokeObjectURL(url), 30000);
-			showStatus('PNG-Download gestartet.');
+			showStatus(translate("PNG download started."));
 		}
 	} catch (error) {
 		console.error('MapToPoster export', error);
-		showStatus(error instanceof TypeError ? 'Der Export ist fehlgeschlagen. Prüfe die Verbindung und versuche es erneut.' : error.message);
+		showStatus(error instanceof TypeError ? translate("Export failed. Check your connection and try again.") : error.message);
 	} finally {
 		exporting = false;
 		for (const button of actions) button.disabled = false;

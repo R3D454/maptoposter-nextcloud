@@ -1,3 +1,4 @@
+import { translate } from "../l10n.js";
 import html2canvas from 'html2canvas';
 import { getMapInstance, getArtisticMapInstance } from '../map/map-init.js';
 import { state, getSelectedTheme, getSelectedArtisticTheme } from './state.js';
@@ -253,7 +254,7 @@ async function captureMapSnapshot() {
 			const scaleFactor = effectiveWidth / containerRect.width;
 
 			const loaded = tiles.filter(tile => tile.complete && tile.naturalWidth > 0);
-			if (!loaded.length) throw new Error('Die Kartenkacheln konnten nicht geladen werden.');
+			if (!loaded.length) throw new Error(translate("Could not load the map tiles."));
 			for (const tile of loaded) {
 				const rect = tile.getBoundingClientRect();
 				ctx.drawImage(tile, (rect.left - containerRect.left) * scaleFactor,
@@ -396,7 +397,7 @@ async function drawMarkerToCtx(ctx, x, y, color) {
 
 export async function renderPosterPNG(element) {
 	const snapshot = await captureMapSnapshot();
-	if (!snapshot) throw new Error('Die Karte fehlt. Prüfe den Kartendienst und versuche es erneut.');
+	if (!snapshot) throw new Error(translate("The map is missing. Check the map service and try again."));
 	const targetWidth = state.width;
 	const targetHeight = state.height;
 
@@ -642,7 +643,7 @@ export async function renderPosterPNG(element) {
 	return new Promise((resolve, reject) => {
 		finalCanvas.toBlob(blob => {
 			if (blob) resolve(blob);
-			else reject(new Error('Der Browser konnte diese Postergröße nicht als PNG erzeugen.'));
+			else reject(new Error(translate('The browser could not create a PNG at this poster size.')));
 		}, 'image/png');
 	});
 }

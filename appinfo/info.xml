@@ -13,7 +13,7 @@
     <bugs>https://github.com/R3D454/maptoposter-nextcloud/issues</bugs>
     <repository>https://github.com/R3D454/maptoposter-nextcloud</repository>
     <dependencies>
-        <nextcloud min-version="32" max-version="32"/>
+        <nextcloud min-version="32" max-version="35"/>
     </dependencies>
     <navigations>
         <navigation>

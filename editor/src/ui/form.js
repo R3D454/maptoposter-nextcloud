@@ -1,3 +1,4 @@
+import { translate } from '../l10n.js';
 import { state, updateState, defaultState, getSelectedTheme, getSelectedArtisticTheme } from '../core/state.js';
 import { hexToRgba } from '../core/utils.js';
 import { artisticThemes } from '../core/artistic-themes.js';
@@ -15,6 +16,16 @@ import {
 } from '../map/map-init.js';
 import { searchLocation, formatCoords } from '../map/geocoder.js';
 
+
+const presetCategories = {
+	social_media: 'Social Media',
+	wallpaper: 'Wallpaper',
+	web: 'Web',
+	icons: 'Icons',
+	photo_print: 'Photo Print',
+	posters: 'Posters',
+	paper_size: 'Paper Size',
+};
 
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
 
@@ -264,7 +275,7 @@ export function setupControls() {
 
 	function openCustomThemeEditor(key = null) {
 		_editingCustomKey = key;
-		ctModalTitle.textContent = key ? 'Edit Custom Theme' : 'Create Custom Theme';
+		ctModalTitle.textContent = key ? translate("Edit Custom Theme") : translate("Create Custom Theme");
 		ctDeleteBtn.classList.toggle('hidden', !key);
 
 		const existing = key ? (loadCustomThemes()[key] || {}) : {};
@@ -313,7 +324,7 @@ export function setupControls() {
 		ctDeleteBtn.addEventListener('click', () => {
 			if (!_editingCustomKey) return;
 			const name = document.getElementById('ct-name').value || _editingCustomKey;
-			if (!confirm(`Delete "${name}"?`)) return;
+			if (!confirm(translate("Delete “{name}”?", { name }))) return;
 			deleteCustomTheme(_editingCustomKey);
 			if (state.artisticTheme === _editingCustomKey) {
 				updateState({ artisticTheme: 'cyber_noir' });
@@ -340,15 +351,15 @@ export function setupControls() {
 		const customSection = customKeys.length ? `
 			<div class="space-y-2 pb-4 border-b border-slate-100">
 				<div class="flex items-center justify-between">
-					<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">My Themes</p>
+					<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">${escapeHtml(translate("My Themes"))}</p>
 					<div class="flex items-center gap-2">
-						<button id="export-custom-themes-btn" class="text-[10px] font-bold text-slate-400 hover:text-accent transition-colors flex items-center gap-1" title="Export all custom themes as JSON">
+						<button id="export-custom-themes-btn" class="text-[10px] font-bold text-slate-400 hover:text-accent transition-colors flex items-center gap-1" title="${escapeHtml(translate("Export all custom themes as JSON"))}">
 							<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
-							Export
+							${escapeHtml(translate("Export"))}
 						</button>
-						<button id="delete-all-custom-themes-btn" class="text-[10px] font-bold text-slate-400 hover:text-red-500 transition-colors flex items-center gap-1" title="Delete all custom themes">
+						<button id="delete-all-custom-themes-btn" class="text-[10px] font-bold text-slate-400 hover:text-red-500 transition-colors flex items-center gap-1" title="${escapeHtml(translate("Delete all custom themes"))}">
 							<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
-							Delete All
+							${escapeHtml(translate("Delete all"))}
 						</button>
 					</div>
 				</div>
@@ -360,7 +371,7 @@ export function setupControls() {
 							<div class="flex -space-x-2">${makeSwatches(t)}</div>
 							<div>
 								<div class="text-sm font-semibold text-slate-900">${escapeHtml(t.name || key)}</div>
-								<div class="text-[10px] text-slate-400 mt-0.5">${escapeHtml(t.description || 'Custom theme')}</div>
+								<div class="text-[10px] text-slate-400 mt-0.5">${escapeHtml(t.description || translate("Custom theme"))}</div>
 							</div>
 						</button>
 						<button class="edit-custom-btn shrink-0 w-8 h-8 flex items-center justify-center rounded-xl hover:bg-slate-100 transition-colors" data-key="${escapeHtml(key)}" title="Edit">
@@ -385,17 +396,17 @@ export function setupControls() {
 			<div class="flex gap-2">
 				<button id="create-custom-theme-btn" class="flex-1 flex items-center gap-2 p-3.5 border-2 border-dashed border-slate-200 rounded-2xl hover:border-accent hover:bg-accent/5 transition-all text-slate-400 hover:text-accent">
 					<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/></svg>
-					<span class="text-xs font-semibold">Create Theme</span>
+					<span class="text-xs font-semibold">${escapeHtml(translate("Create Theme"))}</span>
 				</button>
 				<button id="import-custom-themes-btn" class="flex items-center gap-2 px-4 py-3.5 border-2 border-dashed border-slate-200 rounded-2xl hover:border-accent hover:bg-accent/5 transition-all text-slate-400 hover:text-accent" title="Import themes from JSON file">
 					<svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l4-4m0 0l4 4m-4-4v12"/></svg>
-					<span class="text-xs font-semibold">Import</span>
+					<span class="text-xs font-semibold">${escapeHtml(translate("Import"))}</span>
 				</button>
 			</div>
 			<input type="file" id="import-custom-themes-file" accept=".json,application/json" class="hidden" />
 			${customSection}
 			<div class="mb-2">
-				<input id="artistic-search" type="search" placeholder="Search themes..." class="w-full input-field" />
+				<input id="artistic-search" type="search" placeholder="${escapeHtml(translate("Search themes..."))}" class="w-full input-field" />
 			</div>
 			<div class="space-y-2">${builtinHtml}</div>
 		`;
@@ -416,9 +427,9 @@ export function setupControls() {
 				try {
 					const { imported, skipped } = importCustomThemesFromJSON(ev.target.result);
 					populateArtisticModal();
-					alert(`Imported ${imported} theme${imported !== 1 ? 's' : ''}${skipped ? ` (${skipped} skipped — invalid)` : ''}.`);
+					alert(translate("Themes imported: {imported}. Invalid themes skipped: {skipped}.", { imported, skipped }));
 				} catch {
-					alert('Could not read file. Make sure it is a valid JSON export from this app.');
+					alert(translate("Could not read file. Make sure it is a valid JSON export from this app."));
 				}
 				e.target.value = '';
 			};
@@ -428,7 +439,7 @@ export function setupControls() {
 		document.getElementById('export-custom-themes-btn')?.addEventListener('click', exportCustomThemes);
 
 		document.getElementById('delete-all-custom-themes-btn')?.addEventListener('click', () => {
-			if (!confirm(`Delete all ${customKeys.length} custom theme${customKeys.length !== 1 ? 's' : ''}? This cannot be undone.`)) return;
+			if (!confirm(translate("Delete all custom themes ({count})? This cannot be undone.", { count: customKeys.length }))) return;
 			clearCustomThemes();
 			if (customKeys.includes(state.artisticTheme)) updateState({ artisticTheme: 'cyber_noir' });
 			populateArtisticModal();
@@ -478,7 +489,7 @@ export function setupControls() {
 			<div class="space-y-4 preset-group">
         <div class="flex items-center space-x-3">
           <div class="w-1 h-5 bg-accent rounded-full"></div>
-          <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">${key.replace('_', ' ')}</h3>
+          <h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">${escapeHtml(translate(presetCategories[key]))}</h3>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
           ${presets.map(p => {
@@ -497,7 +508,7 @@ export function setupControls() {
 
 		modalContent.innerHTML = `
 			<div class="mb-4">
-				<input id="preset-search" type="search" placeholder="Search sizes or preset names..." class="w-full input-field" />
+				<input id="preset-search" type="search" placeholder="${escapeHtml(translate("Search sizes or preset names..."))}" class="w-full input-field" />
 			</div>
 			<div class="space-y-6">${groupsHtml}</div>
 		`;
@@ -891,7 +902,7 @@ export function setupControls() {
 
 	const resetSettingsBtn = document.getElementById('reset-settings-btn');
 	function doResetSettings() {
-		if (confirm('Are you sure you want to reset all settings?')) {
+		if (confirm(translate("Are you sure you want to reset all settings?"))) {
 			updateState(defaultState);
 		}
 	}

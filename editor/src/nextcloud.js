@@ -1,10 +1,11 @@
+import { translate } from "./l10n.js";
 const messages = {
-    401: 'Bitte melde dich erneut in Nextcloud an.',
-    403: 'Nextcloud hat den Schreibzugriff verweigert. Prüfe deine Sitzung und die Rechte im Ordner Poster.',
-    409: 'Der Ordner Poster ist nicht verfügbar. Prüfe, ob schon eine Datei mit diesem Namen existiert.',
-    413: 'Die PNG-Datei überschreitet das Upload-Limit des Servers.',
-    423: 'Die Datei ist gerade gesperrt. Versuche es erneut.',
-    507: 'Dein Speicherplatz in Nextcloud reicht für dieses Poster nicht aus.',
+    401: "Please sign in to Nextcloud again.",
+    403: "Nextcloud denied write access. Check your session and permissions for the Poster folder.",
+    409: "The Poster folder is unavailable. Check whether a file already has that name.",
+    413: "The PNG exceeds the server upload limit.",
+    423: "The file is locked. Try again.",
+    507: 'There is not enough Nextcloud storage for this poster.',
 };
 
 export function posterFilename(city, date = new Date()) {
@@ -16,7 +17,8 @@ export function posterFilename(city, date = new Date()) {
 
 function check(response, expected) {
     if (!expected.includes(response.status)) {
-        throw new Error(messages[response.status] || `Nextcloud konnte das Poster nicht speichern (HTTP ${response.status}).`);
+        const message = messages[response.status] ?? 'Nextcloud could not save the poster (HTTP {status}).';
+        throw new Error(translate(message, { status: response.status }));
     }
 }
 
@@ -43,7 +45,7 @@ export async function savePoster(blob, filename, config, token) {
         check(upload, [201, 204]);
 
         // The DAV OC-FileId header may contain an instance suffix. Files uses the numeric id.
-        const result = { name, href: config.folderUrl, label: 'Ordner öffnen' };
+        const result = { name, href: config.folderUrl, label: translate("Open folder") };
         try {
             const properties = await request(url, {
                 method: 'PROPFIND',
@@ -55,7 +57,7 @@ export async function savePoster(blob, filename, config, token) {
                 const id = xml.getElementsByTagNameNS('http://owncloud.org/ns', 'fileid')[0]?.textContent?.trim();
                 if (/^\d+$/.test(id)) {
                     result.href = config.fileUrl.replace('__FILE_ID__', id);
-                    result.label = 'In Dateien öffnen';
+                    result.label = translate("Open in Files");
                 }
             }
         } catch {
@@ -63,5 +65,5 @@ export async function savePoster(blob, filename, config, token) {
         }
         return result;
     }
-    throw new Error('Der Dateiname ist bereits vergeben. Bitte speichere das Poster erneut.');
+    throw new Error(translate("The filename is already taken. Save the poster again."));
 }

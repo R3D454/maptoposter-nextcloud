@@ -2,7 +2,7 @@
 style('maptoposter', 'editor');
 script('maptoposter', 'editor');
 ?>
-<div id="maptoposter" data-dav-folder="<?php p($_['davFolder']); ?>" data-folder-url="<?php p($_['folderUrl']); ?>" data-file-url="<?php p($_['fileUrl']); ?>">
+<div id="maptoposter" data-language="<?php p($l->getLanguageCode()); ?>" data-dav-folder="<?php p($_['davFolder']); ?>" data-folder-url="<?php p($_['folderUrl']); ?>" data-file-url="<?php p($_['fileUrl']); ?>">
 <nav id="mobile-nav" class="md:hidden fixed bottom-0 left-0 right-0 z-[60] flex items-center justify-center gap-3 px-4 pb-5 pt-2">
 		<div class="flex-1 bg-white/95 backdrop-blur-xl rounded-[1.75rem] shadow-2xl shadow-slate-900/15 border border-white/60 flex items-center p-1.5 gap-1">
 			<button id="nav-btn-a" class="mobile-nav-btn flex-1 flex flex-col items-center justify-center gap-0.5 py-2.5 px-2 rounded-2xl transition-all duration-200 text-slate-400" data-target="mobile-sheet-a">
@@ -10,28 +10,28 @@ script('maptoposter', 'editor');
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
 				</svg>
-				<span class="mobile-nav-label text-[9px] font-black uppercase tracking-wider opacity-0 max-h-0 overflow-hidden transition-all duration-200">Location</span>
+				<span class="mobile-nav-label text-[9px] font-black uppercase tracking-wider opacity-0 max-h-0 overflow-hidden transition-all duration-200"><?php p($l->t('Location')); ?></span>
 			</button>
 			<button id="nav-btn-b" class="mobile-nav-btn flex-1 flex flex-col items-center justify-center gap-0.5 py-2.5 px-2 rounded-2xl transition-all duration-200 text-slate-400" data-target="mobile-sheet-b">
 				<svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01" />
 				</svg>
-				<span class="mobile-nav-label text-[9px] font-black uppercase tracking-wider opacity-0 max-h-0 overflow-hidden transition-all duration-200">Style</span>
+				<span class="mobile-nav-label text-[9px] font-black uppercase tracking-wider opacity-0 max-h-0 overflow-hidden transition-all duration-200"><?php p($l->t('Style')); ?></span>
 			</button>
 			<button id="nav-btn-c" class="mobile-nav-btn flex-1 flex flex-col items-center justify-center gap-0.5 py-2.5 px-2 rounded-2xl transition-all duration-200 text-slate-400" data-target="mobile-sheet-c">
 				<svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
 				</svg>
-				<span class="mobile-nav-label text-[9px] font-black uppercase tracking-wider opacity-0 max-h-0 overflow-hidden transition-all duration-200">Ausgabe</span>
+				<span class="mobile-nav-label text-[9px] font-black uppercase tracking-wider opacity-0 max-h-0 overflow-hidden transition-all duration-200"><?php p($l->t('Output')); ?></span>
 			</button>
 			<button id="nav-btn-d" class="mobile-nav-btn flex-1 flex flex-col items-center justify-center gap-0.5 py-2.5 px-2 rounded-2xl transition-all duration-200 text-slate-400" data-target="credits-modal">
 				<svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
 				</svg>
-				<span class="mobile-nav-label text-[9px] font-black uppercase tracking-wider opacity-0 max-h-0 overflow-hidden transition-all duration-200">About</span>
+				<span class="mobile-nav-label text-[9px] font-black uppercase tracking-wider opacity-0 max-h-0 overflow-hidden transition-all duration-200"><?php p($l->t('About')); ?></span>
 			</button>
 		</div>
-		<button id="mobile-export-btn" aria-label="PNG herunterladen" title="PNG herunterladen" class="w-14 h-14 bg-accent rounded-full shadow-2xl shadow-accent/40 flex items-center justify-center flex-shrink-0 active:scale-95 transition-all duration-200">
+		<button id="mobile-export-btn" aria-label="<?php p($l->t('Download PNG')); ?>" title="<?php p($l->t('Download PNG')); ?>" class="w-14 h-14 bg-accent rounded-full shadow-2xl shadow-accent/40 flex items-center justify-center flex-shrink-0 active:scale-95 transition-all duration-200">
 			<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
 			</svg>
@@ -52,7 +52,7 @@ script('maptoposter', 'editor');
 				</div>
 				<div>
 					<h1 class="text-xl font-bold tracking-tight text-slate-900 leading-none">MapToPoster <span class="text-accent">JS</span></h1>
-					<p class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mt-1">Procedural Map Artist</p>
+					<p class="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mt-1"><?php p($l->t('Procedural Map Artist')); ?></p>
 				</div>
 			</button>
 		</div>
@@ -61,15 +61,15 @@ script('maptoposter', 'editor');
 
 			<div id="section-location" class="space-y-4">
 				<div class="flex items-center justify-between">
-					<h3 class="text-sm font-semibold text-slate-900">1. Define Location</h3>
+					<h3 class="text-sm font-semibold text-slate-900">1. <?php p($l->t('Location & Search')); ?></h3>
 					<span class="w-5 h-5 bg-slate-100 rounded-md flex items-center justify-center text-[10px] font-bold text-slate-400">01</span>
 				</div>
 
 				<div class="space-y-3">
 					<div class="relative group">
-						<label for="poster-city-query" class="label-sm">Stadt suchen</label>
+						<label for="poster-city-query" class="label-sm"><?php p($l->t('Search city')); ?></label>
 						<div class="relative">
-							<input type="text" id="poster-city-query" placeholder="Stadt eingeben" class="input-field pl-10 pr-10" />
+							<input type="text" id="poster-city-query" placeholder="<?php p($l->t('Enter a city')); ?>" class="input-field pl-10 pr-10" />
 							<svg class="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
 							</svg>
@@ -80,32 +80,32 @@ script('maptoposter', 'editor');
 								</svg>
 							</div>
 						</div>
-						<button type="button" id="poster-search-submit" class="mt-2 px-3 py-1 rounded-xl bg-slate-100 text-sm">Suchen</button>
+						<button type="button" id="poster-search-submit" class="mt-2 px-3 py-1 rounded-xl bg-slate-100 text-sm"><?php p($l->t('Search')); ?></button>
 						<div id="search-results" class="absolute left-0 right-0 mt-2 bg-white border border-slate-200 rounded-2xl shadow-xl z-[100] hidden max-h-64 overflow-y-auto p-2 backdrop-blur-xl"></div>
 					</div>
 
 					<div class="mt-2 text-left">
-						<span class="label-sm">Override City Name</span>
-						<input type="text" id="city-override-input" placeholder="Leave blank to use search result" class="input-field mt-1" />
+						<span class="label-sm"><?php p($l->t('Override City Name')); ?></span>
+						<input type="text" id="city-override-input" placeholder="<?php p($l->t('Leave blank to use search result')); ?>" class="input-field mt-1" />
 					</div>
 
 					<div class="mt-2 text-left">
 						<div class="flex items-center justify-between mb-1">
-							<span class="label-sm mb-0">Override Country Name</span>
-							<button id="toggle-country-btn" title="Toggle country visibility on poster" class="w-6 h-6 flex items-center justify-center rounded-md hover:bg-slate-100 transition-colors flex-shrink-0">
+							<span class="label-sm mb-0"><?php p($l->t('Override Country Name')); ?></span>
+							<button id="toggle-country-btn" title="<?php p($l->t('Toggle country visibility on poster')); ?>" class="w-6 h-6 flex items-center justify-center rounded-md hover:bg-slate-100 transition-colors flex-shrink-0">
 								<svg id="country-eye-icon" class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
 								</svg>
 							</button>
 						</div>
-						<input type="text" id="country-override-input" placeholder="Leave blank to use search result" class="input-field" />
+						<input type="text" id="country-override-input" placeholder="<?php p($l->t('Leave blank to use search result')); ?>" class="input-field" />
 					</div>
 
 					<div class="mt-2">
 						<div class="flex items-center justify-between mb-1">
-							<span class="label-sm mb-0">Coordinates</span>
-							<button id="toggle-coords-btn" title="Toggle coordinates visibility on poster" class="w-6 h-6 flex items-center justify-center rounded-md hover:bg-slate-100 transition-colors flex-shrink-0">
+							<span class="label-sm mb-0"><?php p($l->t('Coordinates')); ?></span>
+							<button id="toggle-coords-btn" title="<?php p($l->t('Toggle coordinates visibility on poster')); ?>" class="w-6 h-6 flex items-center justify-center rounded-md hover:bg-slate-100 transition-colors flex-shrink-0">
 								<svg id="coords-eye-icon" class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -114,11 +114,11 @@ script('maptoposter', 'editor');
 						</div>
 						<div class="grid grid-cols-2 gap-3">
 							<div>
-								<span class="label-sm">Latitude</span>
+								<span class="label-sm"><?php p($l->t('Latitude')); ?></span>
 								<input type="text" id="lat-input" class="input-field text-center font-mono text-xs" />
 							</div>
 							<div>
-								<span class="label-sm">Longitude</span>
+								<span class="label-sm"><?php p($l->t('Longitude')); ?></span>
 								<input type="text" id="lon-input" class="input-field text-center font-mono text-xs" />
 							</div>
 						</div>
@@ -128,13 +128,13 @@ script('maptoposter', 'editor');
 
 			<div id="section-marker" class="space-y-4">
 				<div class="flex items-center justify-between">
-					<h3 class="text-sm font-semibold text-slate-900">2. Marker & Route</h3>
+					<h3 class="text-sm font-semibold text-slate-900">2. <?php p($l->t('Marker & Route')); ?></h3>
 					<span class="w-5 h-5 bg-slate-100 rounded-md flex items-center justify-center text-[10px] font-bold text-slate-400">02</span>
 				</div>
 
 				<div class="space-y-4">
 					<div class="flex items-center justify-between">
-						<span class="label-sm mb-0">Show Location Marker</span>
+						<span class="label-sm mb-0"><?php p($l->t('Show Location Marker')); ?></span>
 						<label class="relative inline-flex items-center cursor-pointer">
 							<input type="checkbox" id="show-marker-toggle" class="sr-only peer">
 							<div class="toggle-pill"></div>
@@ -144,14 +144,14 @@ script('maptoposter', 'editor');
 					<div id="marker-settings" class="space-y-4 hidden">
 						<div class="grid grid-cols-2 gap-3">
 							<div>
-								<span class="label-sm">Marker Symbol</span>
+								<span class="label-sm"><?php p($l->t('Marker Symbol')); ?></span>
 								<div class="relative">
 									<select id="marker-icon-select" class="input-field appearance-none cursor-pointer text-xs py-2">
-										<option value="pin">Default Pin</option>
-										<option value="circle">Modern Dot</option>
-										<option value="heart">Heart</option>
-										<option value="star">Star</option>
-										<option value="none">Ghost Point</option>
+										<option value="pin"><?php p($l->t('Default Pin')); ?></option>
+										<option value="circle"><?php p($l->t('Modern Dot')); ?></option>
+										<option value="heart"><?php p($l->t('Heart')); ?></option>
+										<option value="star"><?php p($l->t('Star')); ?></option>
+										<option value="none"><?php p($l->t('Ghost Point')); ?></option>
 									</select>
 									<svg class="w-3 h-3 text-slate-400 absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -160,7 +160,7 @@ script('maptoposter', 'editor');
 							</div>
 							<div>
 								<div class="flex justify-between items-center mb-1.5">
-									<span class="label-sm mb-0">Size</span>
+									<span class="label-sm mb-0"><?php p($l->t('Size')); ?></span>
 									<span id="marker-size-value" class="text-[9px] font-bold text-accent">40px</span>
 								</div>
 								<input type="range" id="marker-size-slider" min="10" max="120" step="2" value="40" class="w-full h-1 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-accent" />
@@ -173,29 +173,29 @@ script('maptoposter', 'editor');
 									<div class="w-1.5 h-1.5 bg-accent rounded-full animate-pulse"></div>
 									<span class="text-[10px] text-slate-500 font-medium uppercase tracking-wider"><span id="marker-count" class="font-bold text-slate-900">1</span> Markers Active</span>
 								</div>
-								<button id="clear-markers-btn" class="text-[9px] font-bold text-slate-400 hover:text-red-500 transition-colors uppercase tracking-tight">Clear All</button>
+								<button id="clear-markers-btn" class="text-[9px] font-bold text-slate-400 hover:text-red-500 transition-colors uppercase tracking-tight"><?php p($l->t('Clear All')); ?></button>
 							</div>
 							<div class="grid grid-cols-2 gap-2">
 								<button id="add-marker-btn" class="py-2.5 px-3 rounded-xl bg-white border border-slate-200 shadow-sm text-[10px] font-bold text-slate-600 hover:border-blue-200 hover:bg-blue-50/30 hover:text-blue-600 transition-all flex items-center justify-center space-x-2">
 									<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" />
 									</svg>
-									<span>Add Point</span>
+									<span><?php p($l->t('Add Point')); ?></span>
 								</button>
 								<button id="remove-marker-btn" class="py-2.5 px-3 rounded-xl bg-white border border-slate-200 shadow-sm text-[10px] font-bold text-slate-600 hover:border-red-200 hover:bg-red-50/30 hover:text-red-600 transition-all flex items-center justify-center space-x-2">
 									<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M20 12H4" />
 									</svg>
-									<span>Remove Last</span>
+									<span><?php p($l->t('Remove Last')); ?></span>
 								</button>
 							</div>
 						</div>
 
-						<p class="text-[9px] text-slate-400 italic text-center">Tip: You can drag the marker on the map to reposition it.</p>
+						<p class="text-[9px] text-slate-400 italic text-center"><?php p($l->t('Tip: You can drag the marker on the map to reposition it.')); ?></p>
 					</div>
 
 					<div class="flex items-center justify-between">
-						<span class="label-sm mb-0">Custom Route (A to B)</span>
+						<span class="label-sm mb-0"><?php p($l->t('Custom Route (A to B)')); ?></span>
 						<label class="relative inline-flex items-center cursor-pointer">
 							<input type="checkbox" id="show-route-toggle" class="sr-only peer">
 							<div class="toggle-pill"></div>
@@ -209,29 +209,29 @@ script('maptoposter', 'editor');
 									<div class="w-1.5 h-1.5 bg-red-400 rounded-full animate-pulse"></div>
 									<span class="text-[10px] text-slate-500 font-medium uppercase tracking-wider"><span id="route-count" class="font-bold text-slate-900">2</span> Points Active</span>
 								</div>
-								<button id="reset-route-btn" class="text-[9px] font-bold text-slate-400 hover:text-red-500 transition-colors uppercase tracking-tight">Reset All</button>
+								<button id="reset-route-btn" class="text-[9px] font-bold text-slate-400 hover:text-red-500 transition-colors uppercase tracking-tight"><?php p($l->t('Reset All')); ?></button>
 							</div>
 						</div>
-						<p class="text-[9px] text-slate-400 italic text-center">Tip: Drag the markers on the map to set the route. Click on the line to add a custom bend. Double click a point to remove it.</p>
+						<p class="text-[9px] text-slate-400 italic text-center"><?php p($l->t('Tip: Drag the markers on the map to set the route. Click on the line to add a custom bend. Double click a point to remove it.')); ?></p>
 					</div>
 				</div>
 			</div>
 
 			<div id="section-style" class="space-y-4">
 				<div class="flex items-center justify-between">
-					<h3 class="text-sm font-semibold text-slate-900">3. Map Style</h3>
+					<h3 class="text-sm font-semibold text-slate-900">3. <?php p($l->t('Map Style')); ?></h3>
 					<span class="w-5 h-5 bg-slate-100 rounded-md flex items-center justify-center text-[10px] font-bold text-slate-400">03</span>
 				</div>
 
 				<div class="space-y-4">
 					<div class="bg-slate-100 p-1 rounded-xl flex">
-						<button id="mode-tile" class="flex-1 py-2 text-xs font-bold rounded-lg transition-all">Standard</button>
-						<button id="mode-artistic" class="flex-1 py-2 text-xs font-bold rounded-lg transition-all">Artistic</button>
+						<button id="mode-tile" class="flex-1 py-2 text-xs font-bold rounded-lg transition-all"><?php p($l->t('Standard')); ?></button>
+						<button id="mode-artistic" class="flex-1 py-2 text-xs font-bold rounded-lg transition-all"><?php p($l->t('Artistic')); ?></button>
 					</div>
 
 					<div id="standard-theme-config" class="space-y-4">
 						<div>
-							<span class="label-sm">Color Theme</span>
+							<span class="label-sm"><?php p($l->t('Color Theme')); ?></span>
 							<div class="relative">
 								<select id="theme-select" class="input-field appearance-none cursor-pointer">
 								</select>
@@ -242,7 +242,7 @@ script('maptoposter', 'editor');
 						</div>
 
 						<div class="flex items-center justify-between">
-							<span class="label-sm mb-0">Show Place Labels</span>
+							<span class="label-sm mb-0"><?php p($l->t('Show Place Labels')); ?></span>
 							<label class="relative inline-flex items-center cursor-pointer">
 								<input type="checkbox" id="show-labels-toggle" class="sr-only peer">
 								<div class="toggle-pill"></div>
@@ -252,7 +252,7 @@ script('maptoposter', 'editor');
 
 					<div id="artistic-theme-config" class="space-y-4 hidden">
 						<div>
-							<span class="label-sm">Artistic Theme</span>
+							<span class="label-sm"><?php p($l->t('Artistic Theme')); ?></span>
 							<div id="artistic-main-grid" class="grid grid-cols-2 gap-3 mt-2">
 							</div>
 						</div>
@@ -263,14 +263,14 @@ script('maptoposter', 'editor');
 
 			<div id="section-composition" class="space-y-4">
 				<div class="flex items-center justify-between">
-					<h3 class="text-sm font-semibold text-slate-900">4. Composition</h3>
+					<h3 class="text-sm font-semibold text-slate-900">4. <?php p($l->t('Composition')); ?></h3>
 					<span class="w-5 h-5 bg-slate-100 rounded-md flex items-center justify-center text-[10px] font-bold text-slate-400">04</span>
 				</div>
 
 				<div class="space-y-4">
 					<div>
 						<div class="flex justify-between items-center mb-2">
-							<span class="label-sm mb-0">Perspective Zoom</span>
+							<span class="label-sm mb-0"><?php p($l->t('Perspective Zoom')); ?></span>
 							<span id="zoom-value" class="text-xs font-bold text-accent bg-accent-light px-2 py-0.5 rounded-full">12</span>
 						</div>
 						<input type="range" id="zoom-slider" min="1" max="18" step="1" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-accent" />
@@ -278,65 +278,65 @@ script('maptoposter', 'editor');
 
 					<div id="overlay-controls" class="mt-4 space-y-4">
 						<div>
-							<span class="label-sm">Overlay Effect</span>
+							<span class="label-sm"><?php p($l->t('Overlay Effect')); ?></span>
 							<div id="overlay-bg-group" class="grid grid-cols-3 gap-2 w-full mt-1">
-								<button type="button" data-bg="none" class="overlay-bg-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100">None</button>
-								<button type="button" data-bg="vignette" class="overlay-bg-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100">Vignette</button>
-								<button type="button" data-bg="radial" class="overlay-bg-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100">Radial</button>
+								<button type="button" data-bg="none" class="overlay-bg-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100"><?php p($l->t('None')); ?></button>
+								<button type="button" data-bg="vignette" class="overlay-bg-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100"><?php p($l->t('Vignette')); ?></button>
+								<button type="button" data-bg="radial" class="overlay-bg-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100"><?php p($l->t('Radial')); ?></button>
 							</div>
 						</div>
 
 						<div>
-							<span class="label-sm">Overlay Size</span>
+							<span class="label-sm"><?php p($l->t('Overlay Size')); ?></span>
 							<div id="overlay-size-group" class="grid grid-cols-4 gap-2 w-full mt-1">
-								<button type="button" data-size="none" class="overlay-size-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100">None</button>
-								<button type="button" data-size="small" class="overlay-size-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100">Small</button>
-								<button type="button" data-size="medium" class="overlay-size-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100">Medium</button>
-								<button type="button" data-size="large" class="overlay-size-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100">Large</button>
+								<button type="button" data-size="none" class="overlay-size-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100"><?php p($l->t('None')); ?></button>
+								<button type="button" data-size="small" class="overlay-size-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100"><?php p($l->t('Small')); ?></button>
+								<button type="button" data-size="medium" class="overlay-size-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100"><?php p($l->t('Medium')); ?></button>
+								<button type="button" data-size="large" class="overlay-size-btn px-3 py-2 text-[10px] font-bold rounded-lg bg-slate-50 border border-slate-100"><?php p($l->t('Large')); ?></button>
 							</div>
 						</div>
 
 						<div id="overlay-position-group">
 							<div class="flex items-center justify-between">
-								<span class="label-sm mb-0">Overlay Position</span>
-								<button id="reset-overlay-pos-btn" title="Reset to default position" class="flex items-center space-x-1 px-2 py-1 text-[9px] font-bold text-slate-400 hover:text-accent hover:bg-accent-light rounded-lg transition-all">
+								<span class="label-sm mb-0"><?php p($l->t('Overlay Position')); ?></span>
+								<button id="reset-overlay-pos-btn" title="<?php p($l->t('Reset to default position')); ?>" class="flex items-center space-x-1 px-2 py-1 text-[9px] font-bold text-slate-400 hover:text-accent hover:bg-accent-light rounded-lg transition-all">
 									<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
 									</svg>
-									<span>Reset</span>
+									<span><?php p($l->t('Reset')); ?></span>
 								</button>
 							</div>
 							<div class="space-y-4 mt-1">
 								<div class="grid grid-cols-3 gap-1.5">
-									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.15" data-overlay-y="0.15" title="Top Left">
+									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.15" data-overlay-y="0.15" title="<?php p($l->t('Top Left')); ?>">
 										<span class="pos-dot absolute top-1.5 left-1.5 w-2 h-2 rounded-full bg-slate-300 transition-colors"></span>
 									</button>
-									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.5" data-overlay-y="0.15" title="Top Center">
+									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.5" data-overlay-y="0.15" title="<?php p($l->t('Top Center')); ?>">
 										<span class="pos-dot absolute top-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-slate-300 transition-colors"></span>
 									</button>
-									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.85" data-overlay-y="0.15" title="Top Right">
+									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.85" data-overlay-y="0.15" title="<?php p($l->t('Top Right')); ?>">
 										<span class="pos-dot absolute top-1.5 right-1.5 w-2 h-2 rounded-full bg-slate-300 transition-colors"></span>
 									</button>
-									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.15" data-overlay-y="0.5" title="Middle Left">
+									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.15" data-overlay-y="0.5" title="<?php p($l->t('Middle Left')); ?>">
 										<span class="pos-dot absolute top-1/2 left-1.5 -translate-y-1/2 w-2 h-2 rounded-full bg-slate-300 transition-colors"></span>
 									</button>
-									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.5" data-overlay-y="0.5" title="Center">
+									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.5" data-overlay-y="0.5" title="<?php p($l->t('Center')); ?>">
 										<span class="pos-dot absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-slate-300 transition-colors"></span>
 									</button>
-									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.85" data-overlay-y="0.5" title="Middle Right">
+									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.85" data-overlay-y="0.5" title="<?php p($l->t('Middle Right')); ?>">
 										<span class="pos-dot absolute top-1/2 right-1.5 -translate-y-1/2 w-2 h-2 rounded-full bg-slate-300 transition-colors"></span>
 									</button>
-									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.15" data-overlay-y="0.85" title="Bottom Left">
+									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.15" data-overlay-y="0.85" title="<?php p($l->t('Bottom Left')); ?>">
 										<span class="pos-dot absolute bottom-1.5 left-1.5 w-2 h-2 rounded-full bg-slate-300 transition-colors"></span>
 									</button>
-									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.5" data-overlay-y="0.85" title="Bottom Center">
+									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.5" data-overlay-y="0.85" title="<?php p($l->t('Bottom Center')); ?>">
 										<span class="pos-dot absolute bottom-1.5 left-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-slate-300 transition-colors"></span>
 									</button>
-									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.85" data-overlay-y="0.85" title="Bottom Right">
+									<button class="overlay-pos-btn relative aspect-square rounded-lg border border-slate-100 bg-slate-50 hover:border-accent hover:bg-white transition-all" data-overlay-x="0.85" data-overlay-y="0.85" title="<?php p($l->t('Bottom Right')); ?>">
 										<span class="pos-dot absolute bottom-1.5 right-1.5 w-2 h-2 rounded-full bg-slate-300 transition-colors"></span>
 									</button>
 								</div>
-								<p class="text-[9px] text-slate-400 italic text-center">Tip: Drag the map to reposition it freely.</p>
+								<p class="text-[9px] text-slate-400 italic text-center"><?php p($l->t('Tip: Drag the map to reposition it freely.')); ?></p>
 							</div>
 						</div>
 					</div>
@@ -345,13 +345,13 @@ script('maptoposter', 'editor');
 
 			<div id="section-typography" class="space-y-4">
 				<div class="flex items-center justify-between">
-					<h3 class="text-sm font-semibold text-slate-900">5. Typography</h3>
+					<h3 class="text-sm font-semibold text-slate-900">5. <?php p($l->t('Typography')); ?></h3>
 					<span class="w-5 h-5 bg-slate-100 rounded-md flex items-center justify-center text-[10px] font-bold text-slate-400">05</span>
 				</div>
 
 				<div class="space-y-4">
 					<div>
-						<span class="label-sm">City Font</span>
+						<span class="label-sm"><?php p($l->t('City Font')); ?></span>
 						<div class="relative">
 							<select id="city-font-select" class="input-field appearance-none cursor-pointer">
 								<option value="'Bebas Neue', sans-serif">Bebas Neue</option>
@@ -365,8 +365,8 @@ script('maptoposter', 'editor');
 								<option value="'Outfit', sans-serif">Outfit</option>
 								<option value="'Playfair Display', serif">Playfair Display</option>
 								<option value="'Raleway', sans-serif">Raleway</option>
-								<option value="sans-serif">Generic Sans-Serif</option>
-								<option value="serif">Generic Serif</option>
+								<option value="sans-serif"><?php p($l->t('Generic Sans-Serif')); ?></option>
+								<option value="serif"><?php p($l->t('Generic Serif')); ?></option>
 							</select>
 							<svg class="w-4 h-4 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -375,7 +375,7 @@ script('maptoposter', 'editor');
 					</div>
 
 					<div>
-						<span class="label-sm">Country Font</span>
+						<span class="label-sm"><?php p($l->t('Country Font')); ?></span>
 						<div class="relative">
 							<select id="country-font-select" class="input-field appearance-none cursor-pointer">
 								<option value="'Caveat', cursive">Caveat</option>
@@ -387,7 +387,7 @@ script('maptoposter', 'editor');
 								<option value="'Playfair Display', serif">Playfair Display</option>
 								<option value="'Raleway', sans-serif">Raleway</option>
 								<option value="'Roboto', sans-serif">Roboto</option>
-								<option value="sans-serif">Generic Sans-Serif</option>
+								<option value="sans-serif"><?php p($l->t('Generic Sans-Serif')); ?></option>
 							</select>
 							<svg class="w-4 h-4 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -396,15 +396,15 @@ script('maptoposter', 'editor');
 					</div>
 
 					<div>
-						<span class="label-sm">Coordinates Font</span>
+						<span class="label-sm"><?php p($l->t('Coordinates Font')); ?></span>
 						<div class="relative">
 							<select id="coords-font-select" class="input-field appearance-none cursor-pointer">
-								<option value="monospace">Monospace</option>
+								<option value="monospace"><?php p($l->t('Monospace')); ?></option>
 								<option value="'Montserrat', sans-serif">Montserrat</option>
 								<option value="'Outfit', sans-serif">Outfit</option>
 								<option value="'Roboto', sans-serif">Roboto</option>
 								<option value="'Source Code Pro', monospace">Source Code Pro</option>
-								<option value="sans-serif">Generic Sans-Serif</option>
+								<option value="sans-serif"><?php p($l->t('Generic Sans-Serif')); ?></option>
 							</select>
 							<svg class="w-4 h-4 text-slate-400 absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -416,13 +416,13 @@ script('maptoposter', 'editor');
 
 			<div id="section-mat" class="space-y-4">
 				<div class="flex items-center justify-between">
-					<h3 class="text-sm font-semibold text-slate-900">6. Mat / Passepartout</h3>
+					<h3 class="text-sm font-semibold text-slate-900">6. <?php p($l->t('Mat & Border')); ?></h3>
 					<span class="w-5 h-5 bg-slate-100 rounded-md flex items-center justify-center text-[10px] font-bold text-slate-400">06</span>
 				</div>
 
 				<div class="space-y-4">
 					<div class="flex items-center justify-between">
-						<span class="label-sm mb-0">Enable Mat</span>
+						<span class="label-sm mb-0"><?php p($l->t('Enable Mat')); ?></span>
 						<label class="relative inline-flex items-center cursor-pointer">
 							<input type="checkbox" id="mat-toggle" class="sr-only peer">
 							<div class="toggle-pill"></div>
@@ -432,14 +432,14 @@ script('maptoposter', 'editor');
 					<div id="mat-settings" class="space-y-4 hidden">
 						<div>
 							<div class="flex justify-between items-center mb-2">
-								<span class="label-sm mb-0">Mat Width</span>
+								<span class="label-sm mb-0"><?php p($l->t('Mat Width')); ?></span>
 								<span id="mat-width-value" class="text-xs font-bold text-accent bg-accent-light px-2 py-0.5 rounded-full">40px</span>
 							</div>
 							<input type="range" id="mat-width-slider" min="10" max="200" step="5" value="40" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-accent" />
 						</div>
 
 						<div class="flex items-center justify-between">
-							<span class="label-sm mb-0">Show Inner Border</span>
+							<span class="label-sm mb-0"><?php p($l->t('Show Inner Border')); ?></span>
 							<label class="relative inline-flex items-center cursor-pointer">
 								<input type="checkbox" id="mat-border-toggle" class="sr-only peer" checked>
 								<div class="toggle-pill"></div>
@@ -449,7 +449,7 @@ script('maptoposter', 'editor');
 						<div id="mat-border-settings" class="space-y-4">
 							<div>
 								<div class="flex justify-between items-center mb-2">
-									<span class="label-sm mb-0">Border Thickness</span>
+									<span class="label-sm mb-0"><?php p($l->t('Border Thickness')); ?></span>
 									<span id="mat-border-width-value" class="text-xs font-bold text-accent bg-accent-light px-2 py-0.5 rounded-full">1px</span>
 								</div>
 								<input type="range" id="mat-border-width-slider" min="1" max="10" step="1" value="1" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-accent" />
@@ -457,7 +457,7 @@ script('maptoposter', 'editor');
 
 							<div>
 								<div class="flex justify-between items-center mb-2">
-									<span class="label-sm mb-0">Border Opacity</span>
+									<span class="label-sm mb-0"><?php p($l->t('Border Opacity')); ?></span>
 									<span id="mat-border-opacity-value" class="text-xs font-bold text-accent bg-accent-light px-2 py-0.5 rounded-full">100%</span>
 								</div>
 								<input type="range" id="mat-border-opacity-slider" min="0" max="1" step="0.1" value="1" class="w-full h-1.5 bg-slate-100 rounded-lg appearance-none cursor-pointer accent-accent" />
@@ -468,39 +468,39 @@ script('maptoposter', 'editor');
 			</div>
 
 			<div id="section-output" class="space-y-4">
-				<button type="button" data-save-poster class="md:hidden w-full bg-accent text-white font-bold py-3 rounded-xl">In Nextcloud speichern</button>
+				<button type="button" data-save-poster class="md:hidden w-full bg-accent text-white font-bold py-3 rounded-xl"><?php p($l->t('Save to Nextcloud')); ?></button>
 				<div class="flex items-center justify-between">
-					<h3 class="text-sm font-semibold text-slate-900">7. Ausgabegröße</h3>
+					<h3 class="text-sm font-semibold text-slate-900">7. <?php p($l->t('Output Size')); ?></h3>
 					<span class="w-5 h-5 bg-slate-100 rounded-md flex items-center justify-center text-[10px] font-bold text-slate-400">07</span>
 				</div>
 
 				<div class="space-y-4">
 					<div class="grid grid-cols-2 gap-2">
 						<button class="preset-btn px-4 py-3 text-[11px] font-semibold border border-slate-100 bg-slate-50 rounded-xl hover:bg-white hover:border-accent hover:shadow-sm transition-all duration-200 flex flex-col items-center justify-center space-y-1" data-width="1080" data-height="1080">
-							<span>Square</span>
+							<span><?php p($l->t('Square')); ?></span>
 							<span class="text-[9px] font-normal">1080 × 1080</span>
 						</button>
 						<button class="preset-btn px-4 py-3 text-[11px] font-semibold border border-slate-100 bg-slate-50 rounded-xl hover:bg-white hover:border-accent hover:shadow-sm transition-all duration-200 flex flex-col items-center justify-center space-y-1" data-width="1080" data-height="1920">
-							<span>Portrait</span>
+							<span><?php p($l->t('Portrait')); ?></span>
 							<span class="text-[9px] font-normal">1080 × 1920</span>
 						</button>
 						<button class="preset-btn px-4 py-3 text-[11px] font-semibold border border-slate-100 bg-slate-50 rounded-xl hover:bg-white hover:border-accent hover:shadow-sm transition-all duration-200 flex flex-col items-center justify-center space-y-1" data-width="1920" data-height="1080">
-							<span>Landscape</span>
+							<span><?php p($l->t('Landscape')); ?></span>
 							<span class="text-[9px] font-normal">1920 × 1080</span>
 						</button>
 						<button id="other-presets-btn" class="px-4 py-3 text-[11px] font-semibold border border-slate-100 bg-slate-50 rounded-xl hover:bg-white hover:border-accent hover:shadow-sm transition-all duration-200 flex flex-col items-center justify-center space-y-1">
-							<span>Other</span>
-							<span class="text-[9px] font-normal">More Sizes</span>
+							<span><?php p($l->t('Other')); ?></span>
+							<span class="text-[9px] font-normal"><?php p($l->t('More Sizes')); ?></span>
 						</button>
 					</div>
 
 					<div class="flex items-center space-x-3 bg-slate-50 p-3 rounded-2xl border border-dotted border-slate-200">
 						<div class="flex-1">
-							<input type="number" id="custom-w" placeholder="Width" min="100" max="50000" class="w-full bg-transparent border-none text-[11px] font-bold text-center focus:ring-0 p-0" />
+							<input type="number" id="custom-w" placeholder="<?php p($l->t('Width')); ?>" min="100" max="50000" class="w-full bg-transparent border-none text-[11px] font-bold text-center focus:ring-0 p-0" />
 						</div>
 						<span class="text-slate-300 text-xs">×</span>
 						<div class="flex-1">
-							<input type="number" id="custom-h" placeholder="Height" min="100" max="50000" class="w-full bg-transparent border-none text-[11px] font-bold text-center focus:ring-0 p-0" />
+							<input type="number" id="custom-h" placeholder="<?php p($l->t('Height')); ?>" min="100" max="50000" class="w-full bg-transparent border-none text-[11px] font-bold text-center focus:ring-0 p-0" />
 						</div>
 					</div>
 
@@ -508,19 +508,19 @@ script('maptoposter', 'editor');
 						<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
 						</svg>
-						<span>Reset to Defaults</span>
+						<span><?php p($l->t('Reset to Defaults')); ?></span>
 					</button>
 				</div>
 			</div>
 		</div>
 
 		<div class="p-8 border-t border-slate-100 bg-slate-50/50 backdrop-blur-sm">
-			<button type="button" data-save-poster class="w-full bg-accent text-white font-bold py-3 rounded-2xl mb-2">In Nextcloud speichern</button>
+			<button type="button" data-save-poster class="w-full bg-accent text-white font-bold py-3 rounded-2xl mb-2"><?php p($l->t('Save to Nextcloud')); ?></button>
 			<button id="export-btn" class="w-full bg-slate-900 group-hover:bg-accent hover:bg-accent text-white font-bold py-4 px-6 rounded-2xl shadow-xl shadow-slate-200 transition-all duration-300 flex items-center justify-center space-x-3 group active:scale-[0.98]">
 				<svg class="w-5 h-5 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
 				</svg>
-				<span>PNG herunterladen</span>
+				<span><?php p($l->t('Download PNG')); ?></span>
 			</button>
 		</div>
 	</aside>
@@ -554,8 +554,8 @@ script('maptoposter', 'editor');
 
 		<div class="absolute bottom-8 right-8 flex flex-col items-end space-y-3 pointer-events-none">
 			<div class="glass-card px-4 py-2 rounded-full flex items-center space-x-3 opacity-0 group-hover:opacity-100 transition-opacity">
-				<kbd class="text-[10px] bg-slate-800 text-white px-1.5 py-0.5 rounded font-bold uppercase">Shift</kbd>
-				<span class="text-[11px] font-semibold text-slate-500 italic">Scroll to zoom map</span>
+				<kbd class="text-[10px] bg-slate-800 text-white px-1.5 py-0.5 rounded font-bold uppercase"><?php p($l->t('Shift')); ?></kbd>
+				<span class="text-[11px] font-semibold text-slate-500 italic"><?php p($l->t('Scroll to zoom map')); ?></span>
 			</div>
 		</div>
 	</main>
@@ -565,8 +565,8 @@ script('maptoposter', 'editor');
 		<div class="sheet-panel relative bg-white rounded-t-[2rem] shadow-2xl translate-y-full transition-transform duration-300 max-h-[82vh] flex flex-col">
 			<div class="flex-shrink-0 px-6 pt-5 pb-4 flex items-center justify-between border-b border-slate-100">
 				<div>
-					<h2 class="text-lg font-bold text-slate-900">Location &amp; Markers</h2>
-					<p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-0.5">Define Location · Marker &amp; Route</p>
+					<h2 class="text-lg font-bold text-slate-900"><?php p($l->t('Location & Markers')); ?></h2>
+					<p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-0.5"><?php p($l->t('Define Location · Marker & Route')); ?></p>
 				</div>
 				<button class="close-sheet-btn w-9 h-9 flex items-center justify-center rounded-xl hover:bg-slate-100 transition-colors" data-sheet="mobile-sheet-a">
 					<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -580,7 +580,7 @@ script('maptoposter', 'editor');
 					<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
 					</svg>
-					<span>Reset to Defaults</span>
+					<span><?php p($l->t('Reset to Defaults')); ?></span>
 				</button>
 			</div>
 		</div>
@@ -591,8 +591,8 @@ script('maptoposter', 'editor');
 		<div class="sheet-panel relative bg-white rounded-t-[2rem] shadow-2xl translate-y-full transition-transform duration-300 max-h-[82vh] flex flex-col">
 			<div class="flex-shrink-0 px-6 pt-5 pb-4 flex items-center justify-between border-b border-slate-100">
 				<div>
-					<h2 class="text-lg font-bold text-slate-900">Map Style</h2>
-					<p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-0.5">Map Style · Composition · Typography</p>
+					<h2 class="text-lg font-bold text-slate-900"><?php p($l->t('Map Style')); ?></h2>
+					<p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-0.5"><?php p($l->t('Map Style · Composition · Typography')); ?></p>
 				</div>
 				<button class="close-sheet-btn w-9 h-9 flex items-center justify-center rounded-xl hover:bg-slate-100 transition-colors" data-sheet="mobile-sheet-b">
 					<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -606,7 +606,7 @@ script('maptoposter', 'editor');
 					<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
 					</svg>
-					<span>Reset to Defaults</span>
+					<span><?php p($l->t('Reset to Defaults')); ?></span>
 				</button>
 			</div>
 		</div>
@@ -617,8 +617,8 @@ script('maptoposter', 'editor');
 		<div class="sheet-panel relative bg-white rounded-t-[2rem] shadow-2xl translate-y-full transition-transform duration-300 max-h-[82vh] flex flex-col">
 			<div class="flex-shrink-0 px-6 pt-5 pb-4 flex items-center justify-between border-b border-slate-100">
 				<div>
-					<h2 class="text-lg font-bold text-slate-900">Ausgabe</h2>
-					<p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-0.5">Passepartout · Ausgabegröße</p>
+					<h2 class="text-lg font-bold text-slate-900"><?php p($l->t('Output')); ?></h2>
+					<p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mt-0.5"><?php p($l->t('Mat · Output Size')); ?></p>
 				</div>
 				<button class="close-sheet-btn w-9 h-9 flex items-center justify-center rounded-xl hover:bg-slate-100 transition-colors" data-sheet="mobile-sheet-c">
 					<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -632,7 +632,7 @@ script('maptoposter', 'editor');
 					<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
 					</svg>
-					<span>Reset to Defaults</span>
+					<span><?php p($l->t('Reset to Defaults')); ?></span>
 				</button>
 			</div>
 		</div>
@@ -643,8 +643,8 @@ script('maptoposter', 'editor');
 		<div class="relative w-[90%] max-w-md max-h-[85vh] bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col scale-95 transition-transform duration-300">
 			<div class="p-8 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
 				<div>
-					<h2 class="text-2xl font-bold text-slate-900">Credits</h2>
-					<p class="text-xs text-slate-400 font-medium uppercase tracking-wider mt-1">About the developer</p>
+					<h2 class="text-2xl font-bold text-slate-900"><?php p($l->t('Credits')); ?></h2>
+					<p class="text-xs text-slate-400 font-medium uppercase tracking-wider mt-1"><?php p($l->t('About the developer')); ?></p>
 				</div>
 				<button id="close-credits" class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-100 transition-colors">
 					<svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -660,7 +660,7 @@ script('maptoposter', 'editor');
 					</div>
 					<div>
 						<h3 class="text-xl font-bold text-slate-900">Dimar Tarmizi</h3>
-						<p class="text-sm text-slate-500 font-medium italic">Full-stack Developer</p>
+						<p class="text-sm text-slate-500 font-medium italic"><?php p($l->t('Full-stack Developer')); ?></p>
 					</div>
 
 					<div class="grid grid-cols-3 gap-3 w-full">
@@ -668,7 +668,7 @@ script('maptoposter', 'editor');
 							<svg class="w-5 h-5 text-slate-400 group-hover:text-accent transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
 							</svg>
-							<span class="text-[9px] font-bold uppercase tracking-wider mt-2 text-slate-400 group-hover:text-slate-900 transition-colors">Website</span>
+							<span class="text-[9px] font-bold uppercase tracking-wider mt-2 text-slate-400 group-hover:text-slate-900 transition-colors"><?php p($l->t('Website')); ?></span>
 						</a>
 						<a href="https://github.com/dimartarmizi" target="_blank" class="flex flex-col items-center p-3 rounded-2xl bg-slate-50 border border-slate-100 hover:border-accent hover:bg-white transition-all group">
 							<svg class="w-5 h-5 text-slate-400 group-hover:text-accent transition-colors" fill="currentColor" viewBox="0 0 24 24">
@@ -707,7 +707,7 @@ script('maptoposter', 'editor');
 				<div class="space-y-4">
 					<div class="flex items-center space-x-3">
 						<div class="w-1 h-5 bg-accent rounded-full"></div>
-						<h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]">Tech Stack</h3>
+						<h3 class="text-[10px] font-black text-slate-400 uppercase tracking-[0.2em]"><?php p($l->t('Tech Stack')); ?></h3>
 					</div>
 					<div class="flex flex-wrap gap-2">
 						<span class="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-[10px] font-bold text-slate-600">html2canvas</span>
@@ -724,9 +724,9 @@ script('maptoposter', 'editor');
 					<svg class="w-4 h-4 text-slate-400 group-hover:text-accent transition-colors" fill="currentColor" viewBox="0 0 24 24">
 						<path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
 					</svg>
-					<span>Open source</span>
+					<span><?php p($l->t('Open source')); ?></span>
 				</a>
-				<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest opacity-50">Made with ❤️ in Indonesia</p>
+				<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest opacity-50"><?php p($l->t('Made with ❤️ in Indonesia')); ?></p>
 			</div>
 		</div>
 	</div>
@@ -736,8 +736,8 @@ script('maptoposter', 'editor');
 		<div class="relative w-[90%] max-w-2xl max-h-[85vh] bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col scale-95 transition-transform duration-300">
 			<div class="p-8 border-b border-slate-100 flex items-center justify-between">
 				<div>
-					<h2 class="text-2xl font-bold text-slate-900">More Artistic Themes</h2>
-					<p class="text-xs text-slate-400 font-medium uppercase tracking-wider mt-1">Choose from more palettes</p>
+					<h2 class="text-2xl font-bold text-slate-900"><?php p($l->t('More Artistic Themes')); ?></h2>
+					<p class="text-xs text-slate-400 font-medium uppercase tracking-wider mt-1"><?php p($l->t('Choose from more palettes')); ?></p>
 				</div>
 				<button id="close-artistic-modal" class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-100 transition-colors">
 					<svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -750,7 +750,7 @@ script('maptoposter', 'editor');
 			</div>
 
 			<div class="p-6 bg-slate-50 border-t border-slate-100 flex justify-end">
-				<button id="close-artistic-modal-btn" class="px-6 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-accent transition-colors">Done</button>
+				<button id="close-artistic-modal-btn" class="px-6 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-accent transition-colors"><?php p($l->t('Done')); ?></button>
 			</div>
 		</div>
 	</div>
@@ -760,8 +760,8 @@ script('maptoposter', 'editor');
 		<div class="relative w-[92%] max-w-lg max-h-[90vh] bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col scale-95 transition-transform duration-300">
 			<div class="p-6 pb-5 border-b border-slate-100 flex items-center justify-between shrink-0">
 				<div>
-					<h2 id="custom-theme-modal-title" class="text-xl font-bold text-slate-900">Create Custom Theme</h2>
-					<p class="text-[10px] text-slate-400 font-medium uppercase tracking-wider mt-0.5">Saved in your browser</p>
+					<h2 id="custom-theme-modal-title" class="text-xl font-bold text-slate-900"><?php p($l->t('Create Custom Theme')); ?></h2>
+					<p class="text-[10px] text-slate-400 font-medium uppercase tracking-wider mt-0.5"><?php p($l->t('Saved in your browser')); ?></p>
 				</div>
 				<button id="close-custom-theme-modal" class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-100 transition-colors">
 					<svg class="w-5 h-5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -773,29 +773,29 @@ script('maptoposter', 'editor');
 			<div class="flex-1 overflow-y-auto p-6 space-y-5 no-scrollbar">
 				<div class="space-y-3">
 					<div>
-						<label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Theme Name *</label>
-						<input id="ct-name" type="text" maxlength="40" placeholder="My Custom Theme" class="mt-1.5 w-full input-field" />
+						<label class="text-[10px] font-black text-slate-400 uppercase tracking-widest"><?php p($l->t('Theme Name *')); ?></label>
+						<input id="ct-name" type="text" maxlength="40" placeholder="<?php p($l->t('My Custom Theme')); ?>" class="mt-1.5 w-full input-field" />
 					</div>
 					<div>
-						<label class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Description</label>
-						<input id="ct-desc" type="text" maxlength="80" placeholder="Optional short description" class="mt-1.5 w-full input-field" />
+						<label class="text-[10px] font-black text-slate-400 uppercase tracking-widest"><?php p($l->t('Description')); ?></label>
+						<input id="ct-desc" type="text" maxlength="80" placeholder="<?php p($l->t('Optional short description')); ?>" class="mt-1.5 w-full input-field" />
 					</div>
 				</div>
 
 				<div class="space-y-2">
-					<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Background & Text</p>
+					<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest"><?php p($l->t('Background & Text')); ?></p>
 					<div class="grid grid-cols-2 gap-2">
 						<div class="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl">
 							<input type="color" id="ct-bg" value="#0B0B16" class="w-9 h-9 rounded-lg cursor-pointer shrink-0 border-0 p-0" />
 							<div class="min-w-0">
-								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Background</div>
+								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider"><?php p($l->t('Background')); ?></div>
 								<input type="text" id="ct-bg-hex" maxlength="7" class="text-xs font-mono text-slate-700 bg-transparent border-0 outline-none w-full p-0" placeholder="#0b0b16" />
 							</div>
 						</div>
 						<div class="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl">
 							<input type="color" id="ct-text" value="#ffffff" class="w-9 h-9 rounded-lg cursor-pointer shrink-0 border-0 p-0" />
 							<div class="min-w-0">
-								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Text / Labels</div>
+								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider"><?php p($l->t('Text / Labels')); ?></div>
 								<input type="text" id="ct-text-hex" maxlength="7" class="text-xs font-mono text-slate-700 bg-transparent border-0 outline-none w-full p-0" placeholder="#ffffff" />
 							</div>
 						</div>
@@ -803,19 +803,19 @@ script('maptoposter', 'editor');
 				</div>
 
 				<div class="space-y-2">
-					<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Map Areas</p>
+					<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest"><?php p($l->t('Map Areas')); ?></p>
 					<div class="grid grid-cols-2 gap-2">
 						<div class="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl">
 							<input type="color" id="ct-water" value="#071020" class="w-9 h-9 rounded-lg cursor-pointer shrink-0 border-0 p-0" />
 							<div class="min-w-0">
-								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Water</div>
+								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider"><?php p($l->t('Water')); ?></div>
 								<input type="text" id="ct-water-hex" maxlength="7" class="text-xs font-mono text-slate-700 bg-transparent border-0 outline-none w-full p-0" placeholder="#071020" />
 							</div>
 						</div>
 						<div class="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl">
 							<input type="color" id="ct-parks" value="#111122" class="w-9 h-9 rounded-lg cursor-pointer shrink-0 border-0 p-0" />
 							<div class="min-w-0">
-								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Parks</div>
+								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider"><?php p($l->t('Parks')); ?></div>
 								<input type="text" id="ct-parks-hex" maxlength="7" class="text-xs font-mono text-slate-700 bg-transparent border-0 outline-none w-full p-0" placeholder="#111122" />
 							</div>
 						</div>
@@ -823,47 +823,47 @@ script('maptoposter', 'editor');
 				</div>
 
 				<div class="space-y-2">
-					<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Roads</p>
+					<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest"><?php p($l->t('Roads')); ?></p>
 					<div class="grid grid-cols-2 gap-2">
 						<div class="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl">
 							<input type="color" id="ct-road-motorway" value="#FF2AE6" class="w-9 h-9 rounded-lg cursor-pointer shrink-0 border-0 p-0" />
 							<div class="min-w-0">
-								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Motorway</div>
+								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider"><?php p($l->t('Motorway')); ?></div>
 								<input type="text" id="ct-road-motorway-hex" maxlength="7" class="text-xs font-mono text-slate-700 bg-transparent border-0 outline-none w-full p-0" placeholder="#ff2ae6" />
 							</div>
 						</div>
 						<div class="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl">
 							<input type="color" id="ct-road-primary" value="#00E5FF" class="w-9 h-9 rounded-lg cursor-pointer shrink-0 border-0 p-0" />
 							<div class="min-w-0">
-								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Primary</div>
+								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider"><?php p($l->t('Primary')); ?></div>
 								<input type="text" id="ct-road-primary-hex" maxlength="7" class="text-xs font-mono text-slate-700 bg-transparent border-0 outline-none w-full p-0" placeholder="#00e5ff" />
 							</div>
 						</div>
 						<div class="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl">
 							<input type="color" id="ct-road-secondary" value="#00BEBE" class="w-9 h-9 rounded-lg cursor-pointer shrink-0 border-0 p-0" />
 							<div class="min-w-0">
-								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Secondary</div>
+								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider"><?php p($l->t('Secondary')); ?></div>
 								<input type="text" id="ct-road-secondary-hex" maxlength="7" class="text-xs font-mono text-slate-700 bg-transparent border-0 outline-none w-full p-0" placeholder="#00bebe" />
 							</div>
 						</div>
 						<div class="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl">
 							<input type="color" id="ct-road-tertiary" value="#008F95" class="w-9 h-9 rounded-lg cursor-pointer shrink-0 border-0 p-0" />
 							<div class="min-w-0">
-								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Tertiary</div>
+								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider"><?php p($l->t('Tertiary')); ?></div>
 								<input type="text" id="ct-road-tertiary-hex" maxlength="7" class="text-xs font-mono text-slate-700 bg-transparent border-0 outline-none w-full p-0" placeholder="#008f95" />
 							</div>
 						</div>
 						<div class="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl">
 							<input type="color" id="ct-road-residential" value="#005E66" class="w-9 h-9 rounded-lg cursor-pointer shrink-0 border-0 p-0" />
 							<div class="min-w-0">
-								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Residential</div>
+								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider"><?php p($l->t('Residential')); ?></div>
 								<input type="text" id="ct-road-residential-hex" maxlength="7" class="text-xs font-mono text-slate-700 bg-transparent border-0 outline-none w-full p-0" placeholder="#005e66" />
 							</div>
 						</div>
 						<div class="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl">
 							<input type="color" id="ct-road-default" value="#008F95" class="w-9 h-9 rounded-lg cursor-pointer shrink-0 border-0 p-0" />
 							<div class="min-w-0">
-								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Default</div>
+								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider"><?php p($l->t('Default')); ?></div>
 								<input type="text" id="ct-road-default-hex" maxlength="7" class="text-xs font-mono text-slate-700 bg-transparent border-0 outline-none w-full p-0" placeholder="#008f95" />
 							</div>
 						</div>
@@ -871,12 +871,12 @@ script('maptoposter', 'editor');
 				</div>
 
 				<div class="space-y-2">
-					<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest">Route & Markers</p>
+					<p class="text-[10px] font-black text-slate-400 uppercase tracking-widest"><?php p($l->t('Route & Markers')); ?></p>
 					<div class="grid grid-cols-2 gap-2">
 						<div class="flex items-center gap-2.5 p-3 bg-slate-50 rounded-xl">
 							<input type="color" id="ct-route" value="#EAB308" class="w-9 h-9 rounded-lg cursor-pointer shrink-0 border-0 p-0" />
 							<div class="min-w-0">
-								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider">Route Color</div>
+								<div class="text-[9px] font-black text-slate-400 uppercase tracking-wider"><?php p($l->t('Route Color')); ?></div>
 								<input type="text" id="ct-route-hex" maxlength="7" class="text-xs font-mono text-slate-700 bg-transparent border-0 outline-none w-full p-0" placeholder="#eab308" />
 							</div>
 						</div>
@@ -885,10 +885,10 @@ script('maptoposter', 'editor');
 			</div>
 
 			<div class="p-5 bg-slate-50 border-t border-slate-100 flex items-center shrink-0">
-				<button id="custom-theme-delete-btn" class="hidden px-4 py-2 text-sm font-semibold text-red-500 hover:bg-red-50 rounded-xl transition-colors">Delete</button>
+				<button id="custom-theme-delete-btn" class="hidden px-4 py-2 text-sm font-semibold text-red-500 hover:bg-red-50 rounded-xl transition-colors"><?php p($l->t('Delete')); ?></button>
 				<div class="flex gap-2 ml-auto">
-					<button id="custom-theme-cancel-btn" class="px-5 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-200 rounded-xl transition-colors">Cancel</button>
-					<button id="custom-theme-save-btn" class="px-5 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-accent transition-colors">Save Theme</button>
+					<button id="custom-theme-cancel-btn" class="px-5 py-2.5 text-sm font-semibold text-slate-600 hover:bg-slate-200 rounded-xl transition-colors"><?php p($l->t('Cancel')); ?></button>
+					<button id="custom-theme-save-btn" class="px-5 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-accent transition-colors"><?php p($l->t('Save Theme')); ?></button>
 				</div>
 			</div>
 		</div>
@@ -899,8 +899,8 @@ script('maptoposter', 'editor');
 		<div class="relative w-[90%] max-w-2xl max-h-[85vh] bg-white rounded-[2.5rem] shadow-2xl overflow-hidden flex flex-col scale-95 transition-transform duration-300">
 			<div class="p-8 border-b border-slate-100 flex items-center justify-between">
 				<div>
-					<h2 class="text-2xl font-bold text-slate-900">Output Presets</h2>
-					<p class="text-xs text-slate-400 font-medium uppercase tracking-wider mt-1">Select your poster dimensions</p>
+					<h2 class="text-2xl font-bold text-slate-900"><?php p($l->t('Output Presets')); ?></h2>
+					<p class="text-xs text-slate-400 font-medium uppercase tracking-wider mt-1"><?php p($l->t('Select your poster dimensions')); ?></p>
 				</div>
 				<button id="close-modal" class="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-slate-100 transition-colors">
 					<svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -913,9 +913,9 @@ script('maptoposter', 'editor');
 			</div>
 
 			<div class="p-6 bg-slate-50 border-t border-slate-100 flex justify-end">
-				<button id="close-modal-btn" class="px-6 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-accent transition-colors">Done</button>
+				<button id="close-modal-btn" class="px-6 py-2.5 bg-slate-900 text-white text-sm font-bold rounded-xl hover:bg-accent transition-colors"><?php p($l->t('Done')); ?></button>
 			</div>
 		</div>
 	</div>
-	<div id="poster-feedback" role="status" aria-live="polite" hidden><span></span> <a hidden></a><button type="button" aria-label="Meldung schließen">×</button></div>
+	<div id="poster-feedback" role="status" aria-live="polite" hidden><span></span> <a hidden></a><button type="button" aria-label="<?php p($l->t('Close message')); ?>">×</button></div>
 </div>

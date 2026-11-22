@@ -16,7 +16,7 @@ test('an existing folder and file collision are handled without overwriting', as
     const statuses = [405, 412, 201, 503];
     const mock = t.mock.method(globalThis, 'fetch', async () => new Response(null, { status: statuses.shift() }));
     const result = await savePoster(png, 'Köln.png', config, 'session-token');
-    assert.deepEqual(result, { name: 'Köln (2).png', href: config.folderUrl, label: 'Ordner öffnen' });
+    assert.deepEqual(result, { name: 'Köln (2).png', href: config.folderUrl, label: 'Open folder' });
     assert.deepEqual(mock.mock.calls.map(c => c.arguments[1].method), ['MKCOL', 'PUT', 'PUT', 'PROPFIND']);
     const [url, options] = mock.mock.calls[2].arguments;
     assert.equal(url, config.davFolder + '/K%C3%B6ln%20(2).png');
@@ -29,11 +29,11 @@ test('an existing folder and file collision are handled without overwriting', as
 test('quota failures are surfaced after successful folder creation', async t => {
     const statuses = [201, 507];
     t.mock.method(globalThis, 'fetch', async () => new Response(null, { status: statuses.shift() }));
-    await assert.rejects(savePoster(png, 'Berlin.png', config, 'token'), /Speicherplatz/);
+    await assert.rejects(savePoster(png, 'Berlin.png', config, 'token'), /storage/);
 });
 
 test('denied folder creation prevents any upload', async t => {
     const mock = t.mock.method(globalThis, 'fetch', async () => new Response(null, { status: 403 }));
-    await assert.rejects(savePoster(png, 'Berlin.png', config, 'token'), /Schreibzugriff/);
+    await assert.rejects(savePoster(png, 'Berlin.png', config, 'token'), /write access/);
     assert.equal(mock.mock.callCount(), 1);
 });
